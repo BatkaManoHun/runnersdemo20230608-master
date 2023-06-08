@@ -72,4 +72,20 @@ public class RunnerRestController {
             this.lapTimeSeconds = lapTimeSeconds;
         }
     }
+    @GetMapping("/highestfeetsize")
+    public String getHighestFeetSize() {
+        List<RunnerEntity> runner = runnerRepository.findAll();
+        if (runner != null) {
+            double maxFeetSize = runner.get(0).getShoeSize();
+            String maxFeetRunnerName =  runner.get(0).getRunnerName();
+            for (int i=1; i<runner.size();i++) {
+                if (runner.get(i).getShoeSize() > maxFeetSize) {
+                    maxFeetSize = runner.get(i).getShoeSize();
+                    maxFeetRunnerName = runner.get(i).getRunnerName();
+                }
+            }
+            return maxFeetRunnerName;
+        }
+        return null;
+    }
 }
