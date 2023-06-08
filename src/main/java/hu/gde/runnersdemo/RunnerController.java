@@ -20,7 +20,10 @@ public class RunnerController {
     @GetMapping("/runners")
     public String getAllRunners(Model model) {
         List<RunnerEntity> runners = runnerRepository.findAll();
+        RunnerService runnerService = new RunnerService(runnerRepository);
         model.addAttribute("runners", runners);
+        double averagePace = runnerService.getAveragePace();
+        model.addAttribute("averagePace", averagePace);
         return "runners";
     }
 

@@ -26,6 +26,9 @@
                 <a th:href="@{/runner/{id}(id=${runner.runnerId})}" class="btn btn-primary">View</a>
             </td>
         </tr>
+        <tr>
+            <td th:text="'Average pace: ' + ${averagePace}"></td>
+        </tr>
         </tbody>
     </table>
 </div>

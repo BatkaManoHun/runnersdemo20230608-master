@@ -28,4 +28,16 @@ public class RunnerService {
             return -1.0;
         }
     }
+    public double getAveragePace() {
+        List<RunnerEntity> runner = runnerRepository.findAll();
+        if (runner != null) {
+            int totalPace = 0;
+            for (RunnerEntity runner2 : runner) {
+                totalPace += runner2.getPace();
+            }
+            return (double) totalPace / runner.size();
+        } else {
+            return -1.0;
+        }
+    }
 }
