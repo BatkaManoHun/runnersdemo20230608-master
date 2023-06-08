@@ -17,6 +17,8 @@ public class RunnerController {
     private RunnerRepository runnerRepository;
     @Autowired
     private LapTimeRepository lapTimeRepository;
+    @Autowired
+    private ShoeNameRepository shoeNameRepository;
     @GetMapping("/runners")
     public String getAllRunners(Model model) {
         List<RunnerEntity> runners = runnerRepository.findAll();
