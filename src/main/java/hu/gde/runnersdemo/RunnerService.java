@@ -40,4 +40,13 @@ public class RunnerService {
             return -1.0;
         }
     }
+    public String getShoeName(Long runnerId) {
+        RunnerEntity runner = runnerRepository.findById(runnerId).orElse(null);
+        if (runner != null) {
+            ShoeNameEntity shoeNameEntity = runner.getShoeNameEntity();
+            return shoeNameEntity.getShoeName();
+        } else {
+            return null;
+        }
+    }
 }
